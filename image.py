@@ -7,6 +7,10 @@ class Image:
         self.width = width
         self.height = height
         self.pixel_map = [[None for _ in range(width)] for _ in range(height)]
+        self.x0 = -1.0
+        self.y0 = -1.0 * height / width
+        self.x_step = 2 / (width - 1)
+        self.y_step = 2 / (height - 1) * height / width
 
     def set_pixel_to_map(self, x, y, px=Color(v0=0.0, v1=0.0, v2=0.0)):
         self.pixel_map[x][y] = px

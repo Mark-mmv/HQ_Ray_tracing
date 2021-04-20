@@ -3,6 +3,7 @@ import unittest
 
 sys.path.append(os.getcwd())
 from vector3d import *
+from ray import *
 
 
 class VectorsTest(unittest.TestCase):
@@ -32,6 +33,17 @@ class VectorsTest(unittest.TestCase):
 
     def test_normalization(self):
         self.assertEqual(self.vector1.normalization().v2, 3.0 / math.sqrt(14))
+
+
+class RayTest(unittest.TestCase):
+    """There are rays tests"""
+    def setUp(self):
+        origin = (1.0, 2.0, 3.0)
+        basis = (4.0, 5.0, 6.0)
+        self.ray = Ray(origin, basis)
+
+    def test_basis_add_origin(self):
+        self.assertEqual((self.ray.origin + self.ray.basis).v0, 5.0)
 
 
 if __name__ == '__main__':

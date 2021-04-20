@@ -29,7 +29,7 @@ class Vector:
         try:
             return Vector(self.v0 / other, self.v1 / other, self.v2 / other)
         except ZeroDivisionError:
-            return Vector(math.inf, math.inf, math.inf)
+            return Vector(0, 0, 1)
 
     def dot(self, other):
         return self.v0 * other.v0 + self.v1 * other.v1 + self.v2 * other.v2
@@ -39,3 +39,6 @@ class Vector:
 
     def normalization(self):
         return self/self.norma()
+
+    def transformation(self, t, f):
+        return Vector(math.sin(t)*math.cos(f), math.sin(t)*math.sin(f), math.cos(t))

@@ -42,3 +42,6 @@ class Vector:
 
     def transformation(self, t, f):
         return Vector(math.sin(t)*math.cos(f), math.sin(t)*math.sin(f), math.cos(t))
+
+    def log(self, degrees):
+        return Vector(math.log(self.v0, degrees), math.log(self.v1, degrees), math.log(self.v2, degrees))

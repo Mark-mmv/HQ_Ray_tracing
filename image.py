@@ -1,4 +1,5 @@
 from coloring import Color
+import math
 
 
 class Image:
@@ -13,7 +14,11 @@ class Image:
         self.y_step = 2 / (height - 1) * height / width
 
     def set_pixel_to_map(self, x, y, px=Color(v0=0.0, v1=0.0, v2=0.0)):
+        #px = self.gamma_correction(px)
         self.pixel_map[x][y] = px
+
+    def gamma_correction(self, color):
+        return color.log(2.0).normalization()
 
     def convert_to_ppm(self, filename=str('Non_name_img')):
         def to_int8(color):

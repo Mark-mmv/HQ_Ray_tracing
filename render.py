@@ -8,7 +8,7 @@ def render():
     scene_objects = Scene()
     engine = Engine(scene_objects)
     image = engine.render_scene()
-    image.convert_to_ppm('pictures/Test3')
+    image.convert_to_ppm('pictures/Test4')
 
 
 if __name__ == '__main__':
